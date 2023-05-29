@@ -1,0 +1,6 @@
+.git
+.vscode
+.*ignore
+.env
+Dockerfile*
+*.md
