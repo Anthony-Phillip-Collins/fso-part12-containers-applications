@@ -2,5 +2,6 @@
 .vscode
 .*ignore
 .env
+docker-compose*.yml
 Dockerfile*
 *.md
