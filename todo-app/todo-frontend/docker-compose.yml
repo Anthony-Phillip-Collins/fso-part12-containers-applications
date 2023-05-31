@@ -1,0 +1,7 @@
+services:
+  app:
+    image: 'todo-frontend'
+    container_name: 'todo-frontend'
+    build: .
+    ports:
+      - '1234:80'

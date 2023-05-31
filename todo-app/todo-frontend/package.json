@@ -17,6 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down",
     "docker:build": "docker build -t todo-frontend .",
     "docker:rm": "$(docker inspect todo-frontend > /dev/null 2>&1) && $(docker rm -f todo-frontend > /dev/null 2>&1)",
     "docker:run": "docker run -p 1234:80 --name todo-frontend todo-frontend",
