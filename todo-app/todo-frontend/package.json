@@ -24,7 +24,9 @@
     "docker:run": "docker run -p 1234:80 --name todo-frontend todo-frontend",
     "docker:rebuild": "npm run docker:rm && npm run docker:build && npm run docker:run",
     "docker:stop": "docker stop todo-frontend",
-    "docker:start": "docker start todo-frontend"
+    "docker:start": "docker start todo-frontend",
+    "docker:test:build": "docker build -t todo-frontend-test --target test .",
+    "docker:test:run": "docker exec -it frontend-test bash | CI=true npm run test"
   },
   "eslintConfig": {
     "extends": [

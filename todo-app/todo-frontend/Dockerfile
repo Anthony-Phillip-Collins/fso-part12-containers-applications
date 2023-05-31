@@ -1,21 +1,21 @@
-FROM node:18.16.0-bullseye-slim AS build
-
+FROM node:18.16.0-bullseye-slim AS base
 WORKDIR /usr/src/app
+COPY package.json package.json
+COPY package-lock.json package-lock.json
 
+FROM base as test
+ENV CI=true
+RUN npm ci
 COPY . .
+RUN npm run test
 
+FROM test as build
 ENV REACT_APP_BACKEND_URL http://localhost:3000/
-
 RUN npm ci --only=production
-
+COPY . .
 RUN npm run build
 
-
-
-FROM nginx:1.25.0-bullseye
-
+FROM nginx:1.25.0-bullseye as prod
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
-
 EXPOSE 80
-
 CMD ["nginx", "-g", "daemon off;"]
