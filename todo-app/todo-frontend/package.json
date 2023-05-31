@@ -18,7 +18,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "docker:build": "docker build -t todo-frontend .",
-    "docker:run": "docker run -p 1234:80 --name todo-frontend todo-frontend"
+    "docker:rm": "$(docker inspect todo-frontend > /dev/null 2>&1) && $(docker rm -f todo-frontend > /dev/null 2>&1)",
+    "docker:run": "docker run -p 1234:80 --name todo-frontend todo-frontend",
+    "docker:rebuild": "npm run docker:rm && npm run docker:build && npm run docker:run",
+    "docker:stop": "docker stop todo-frontend",
+    "docker:start": "docker start todo-frontend"
   },
   "eslintConfig": {
     "extends": [
