@@ -8,7 +8,7 @@
     "docker:build": "docker compose build --no-cache",
     "docker:up": "docker compose up",
     "docker:down": "docker compose down --remove-orphans",
-    "docker:dev:build": "docker compose -f docker-compose.dev.yml build --no-cache",
+    "docker:dev:build": "docker compose -f docker-compose.dev.yml up --build",
     "docker:dev:up": "docker compose -f docker-compose.dev.yml up --force-recreate",
     "docker:dev:down": "docker compose -f docker-compose.dev.yml down --remove-orphans",
     "docker:mongo:admin": "docker exec -it todo-backend-mongo-1 mongosh admin -u root -p 'example'",

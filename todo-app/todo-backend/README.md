@@ -25,7 +25,7 @@ Pass connection url with env `REDIS_URL`
 Build Mongo and Redis server:
 
 ```
-npm run docker:dev:up
+npm run docker:dev:build
 ```
 
 Build Express backend:

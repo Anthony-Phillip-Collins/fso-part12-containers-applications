@@ -1,0 +1,16 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Just for npm scripts and their ease of use",
+  "scripts": {
+    "docker:build": "docker compose -f docker-compose.dev.yml build --no-cache",
+    "docker:up": "docker compose -f docker-compose.dev.yml up",
+    "docker:down": "docker compose -f docker-compose.dev.yml down --remove-orphans",
+    "docker:ps": "docker compose -f docker-compose.dev.yml ps",
+    "docker:test": "docker compose -f docker-compose.dev.yml run --rm debug-helper wget -O - http://nginx:80",
+    "docker:prune": "docker image prune",
+    "docker:proxy:reload": "docker exec -it reverse-proxy nginx -s reload"
+  },
+  "author": "Anthony Collins",
+  "license": "ISC"
+}
