@@ -19,6 +19,6 @@ services:
     command: ['redis-server', '--appendonly', 'yes'] # Overwrite the CMD
     volumes:
       - ./redis_data:/data
-volumes:
-  mongo_data:
-  redis_data:
+# volumes:
+#   mongo_data:
+#   redis_data:
