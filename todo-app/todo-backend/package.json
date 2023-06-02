@@ -5,7 +5,6 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "debug-helper": "docker compose run debug-helper wget -O - http://app:4000",
     "docker:build": "docker compose build --no-cache",
     "docker:up": "docker compose up",
     "docker:down": "docker compose down --remove-orphans",
@@ -14,7 +13,8 @@
     "docker:dev:down": "docker compose -f docker-compose.dev.yml down --remove-orphans",
     "docker:mongo:admin": "docker exec -it todo-backend-mongo-1 mongosh admin -u root -p 'example'",
     "docker:mongo:editor": "docker exec -it todo-backend-mongo-1 mongosh -u the_username -p 'the_password' the_database",
-    "docker:stop-all-containers": "docker stop $(docker ps -a -q)"
+    "docker:stop-all-containers": "docker stop $(docker ps -a -q)",
+    "debug-helper": "docker compose run debug-helper wget -O - http://app:4000"
   },
   "dependencies": {
     "cors": "^2.8.5",

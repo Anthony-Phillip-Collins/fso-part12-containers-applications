@@ -20,10 +20,12 @@ Pass connection url with env `REDIS_URL`
 
 # SETUP
 
+## Build
+
 Build Mongo and Redis server:
 
 ```
-npm run docker:dev:build
+npm run docker:dev:up
 ```
 
 Build Express backend:
@@ -31,6 +33,8 @@ Build Express backend:
 ```
 npm run docker:build
 ```
+
+## Run
 
 Run Mongo and Redis server:
 
@@ -43,3 +47,51 @@ Run Express backend:
 ```
 npm run docker:up
 ```
+
+## Stop
+
+Stop Mongo, Redis and Express backend containers and remove orphans:
+
+```
+npm run docker:down
+```
+
+# Util
+
+## Browse mongo server with mongosh
+
+```
+ npm run docker:mongo:admin
+```
+
+Show databases:
+
+```
+show dbs
+```
+
+Use database:
+
+```
+use the_database
+```
+
+Show collections:
+
+```
+show collections
+```
+
+Show all entries:
+
+```
+db.todos.find({})
+```
+
+## Use busybox to test connections
+
+```
+npm run debug-helper
+```
+
+## Visit http://localhost:4000/
