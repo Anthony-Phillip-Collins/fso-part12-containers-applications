@@ -9,9 +9,20 @@ USER node
 
 COPY --chown=node:node . /usr/src/app
 
-ENV NODE_ENV production
+##################################################
+# If you are building your code for production
+##################################################
 
-RUN npm ci --only=production
+# ENV NODE_ENV production
+# RUN npm ci --only=production
+# CMD ["dumb-init", "node", "./bin/www"]
 
-CMD ["dumb-init", "node", "./bin/www"]
+##################################################
+# If you are building your code for development
+##################################################
+
+RUN npm install
+CMD ["dumb-init", "node", "node_modules/nodemon/bin/nodemon.js", "./bin/www"]
+
+
 

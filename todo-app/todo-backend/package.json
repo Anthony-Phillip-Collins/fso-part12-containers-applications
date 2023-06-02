@@ -5,9 +5,10 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "docker:build": "docker compose -f docker-compose.yml build --no-cache",
-    "docker:up": "docker compose -f docker-compose.yml up",
-    "docker:down": "docker compose -f docker-compose.yml down --remove-orphans",
+    "debug-helper": "docker compose run debug-helper wget -O - http://app:4000",
+    "docker:build": "docker compose build --no-cache",
+    "docker:up": "docker compose up",
+    "docker:down": "docker compose down --remove-orphans",
     "docker:dev:build": "docker compose -f docker-compose.dev.yml build --no-cache",
     "docker:dev:up": "docker compose -f docker-compose.dev.yml up --force-recreate",
     "docker:dev:down": "docker compose -f docker-compose.dev.yml down --remove-orphans",
