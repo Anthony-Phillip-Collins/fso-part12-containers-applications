@@ -4,8 +4,11 @@ services:
   app: # The name of the service, can be anything
     image: todo-backend # Declares which image to use
     build: . # Declares where to build if image is not found
-    ports: # Declares the ports to publish
-      - 4000:4000
+
+    # commented out ports because we are using nginx reverse proxy
+
+    # ports: # Declares the ports to publish
+    #   - 4000:4000
     container_name: todo-backend
     volumes:
       - ./:/usr/src/app
