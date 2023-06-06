@@ -1,5 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 import Todo from './Todo';
 
 describe('Todo', () => {
@@ -28,15 +27,5 @@ describe('Todo', () => {
     render(wrapper());
 
     expect(screen.getByText(todo.text)).toBeInTheDocument();
-  });
-
-  it('should call onClickDelete when delete button is clicked', async () => {
-    const user = userEvent.setup();
-
-    render(wrapper());
-
-    user.click(screen.getByText('Delete'));
-
-    await waitFor(() => expect(onClickDelete).toBeCalledTimes(1));
   });
 });

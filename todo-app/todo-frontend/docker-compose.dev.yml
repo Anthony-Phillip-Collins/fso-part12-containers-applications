@@ -1,7 +1,7 @@
 services:
-  app:
-    image: 'todo-frontend-dev'
-    container_name: 'todo-frontend-dev'
+  dev.app:
+    image: 'dev.todo-frontend'
+    container_name: 'dev.todo-frontend'
     build:
       context: .
       dockerfile: dev.Dockerfile

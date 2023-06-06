@@ -1,10 +1,10 @@
 # Express application
 
-Install dependencies with `npm install`
+Install dependencies wit h`npm install`
 
-Run with `npm start`
+Run wit h`npm start`
 
-Or in development mode with `npm run dev`
+Or in development mode wit h`npm run dev`
 
 # Visit counter
 
@@ -20,78 +20,76 @@ Pass connection url with env `REDIS_URL`
 
 # SETUP
 
-## Build
+### Production
 
-Build Mongo and Redis server:
+Build  
+`npm run docker:build`
 
-```
-npm run docker:dev:build
-```
+Start  
+`npm run docker:up`
 
-Build Express backend:
+Stop  
+`npm run docker:down`
 
-```
-npm run docker:build
-```
+Log into MongoDB:  
+`npm run docker:mongo`
 
-## Run
+Log into Redis:  
+`npm run docker:redis`
 
-Run Mongo and Redis server:
+Debug with busybox:  
+`npm run debug`
 
-```
-npm run docker:dev:up
-```
+### Development
 
-Run Express backend:
+Build  
+`npm run docker:dev:build`
 
-```
-npm run docker:up
-```
+Start  
+`npm run docker:dev:up`
 
-## Stop
+Stop  
+`npm run docker:dev:down`
 
-Stop Mongo, Redis and Express backend containers and remove orphans:
+Log into MongoDB:  
+`npm run docker:dev:mongo`
 
-```
-npm run docker:down
-```
+Log into Redis:  
+`npm run docker:dev:redis`
+
+Debug with busybox:  
+`npm run debug:dev`
 
 # Util
 
-## Browse mongo server with mongosh
+## Browse Mongo server
 
-```
- npm run docker:mongo:admin
-```
+` npm run docker:mongo`
 
 Show databases:
 
-```
-show dbs
-```
+`show dbs`
 
 Use database:
 
-```
-use the_database
-```
+`use the_database`
 
 Show collections:
 
-```
-show collections
-```
+`show collections`
 
 Show all entries:
 
-```
-db.todos.find({})
-```
+`db.todos.find({})`
 
-## Use busybox to test connections
+## Browse Redis server
 
-```
-npm run debug-helper
-```
+`npm run docker:redis`
 
-## Visit http://localhost:4000/
+Show all keys:
+
+`KEYS *`
+
+get values
+
+`GET added_todos`

@@ -17,18 +17,21 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "docker:up": "docker-compose up",
-    "docker:down": "docker-compose down",
-    "docker:build": "docker build -t todo-frontend . --no-cache",
+    "docker:build": "docker compose build --no-cache",
+    "docker:up": "docker compose up",
+    "docker:down": "docker compose down",
+    "docker:dev:build": "docker compose -f docker-compose.dev.yml build --no-cache",
+    "docker:dev:up": "docker compose -f docker-compose.dev.yml up",
+    "docker:dev:down": "docker compose -f docker-compose.dev.yml down",
+    "docker:test:build": "docker build -t todo-frontend-test --target test .",
+    "docker:test:run": "docker exec -it frontend-test bash | CI=true npm run test"
+  },
+  "legacy-scripts": {
     "docker:rm": "$(docker inspect todo-frontend > /dev/null 2>&1) && $(docker rm -f todo-frontend > /dev/null 2>&1)",
     "docker:run": "docker run -p 1234:80 --name todo-frontend todo-frontend",
     "docker:rebuild": "npm run docker:rm && npm run docker:build && npm run docker:run",
     "docker:stop": "docker stop todo-frontend",
-    "docker:start": "docker start todo-frontend",
-    "docker:test:build": "docker build -t todo-frontend-test --target test .",
-    "docker:test:run": "docker exec -it frontend-test bash | CI=true npm run test",
-    "docker:dev:up": "docker compose -f docker-compose.dev.yml up",
-    "docker:dev:down": "docker compose -f docker-compose.dev.yml down"
+    "docker:start": "docker start todo-frontend"
   },
   "eslintConfig": {
     "extends": [

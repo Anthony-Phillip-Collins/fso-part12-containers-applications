@@ -3,5 +3,8 @@ services:
     image: 'todo-frontend'
     container_name: 'todo-frontend'
     build: .
-    ports:
-      - '1234:80'
+
+    # commented out ports because we are using nginx reverse proxy
+
+    # ports:
+    #   - '1234:80'

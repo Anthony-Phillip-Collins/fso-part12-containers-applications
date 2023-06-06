@@ -8,13 +8,20 @@
     "docker:build": "docker compose build --no-cache",
     "docker:up": "docker compose up",
     "docker:down": "docker compose down --remove-orphans",
+    "docker:mongo": "docker exec -it mongo mongosh admin -u root -p 'example'",
+    "docker:redis": "docker exec -it redis redis-cli",
+    "debug": "docker compose run --rm debug-helper wget -O - http://app:4000/todos",
     "docker:dev:build": "docker compose -f docker-compose.dev.yml up --build",
-    "docker:dev:up": "docker compose -f docker-compose.dev.yml up --force-recreate",
+    "docker:dev:up": "docker compose -f docker-compose.dev.yml up",
     "docker:dev:down": "docker compose -f docker-compose.dev.yml down --remove-orphans",
-    "docker:mongo:admin": "docker exec -it todo-backend-mongo-1 mongosh admin -u root -p 'example'",
-    "docker:mongo:editor": "docker exec -it todo-backend-mongo-1 mongosh -u the_username -p 'the_password' the_database",
-    "docker:stop-all-containers": "docker stop $(docker ps -a -q)",
-    "debug-helper": "docker compose run debug-helper wget -O - http://app:4000"
+    "docker:dev:mongo": "docker exec -it dev.mongo mongosh admin -u root -p 'example'",
+    "docker:dev:redis": "docker exec -it dev.redis redis-cli",
+    "debug:dev": "docker compose run --rm dev.debug-helper wget -O - http://dev.app:4000/todos"
+  },
+  "legacy-scripts": {
+    "docker:dev:ps": "docker compose -f docker-compose.dev.yml ps",
+    "docker:mongo:editor": "docker exec -it dev.mongo mongosh -u the_username -p 'the_password' the_database",
+    "docker:stop-all-containers": "docker stop $(docker ps -a -q)"
   },
   "dependencies": {
     "cors": "^2.8.5",

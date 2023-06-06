@@ -10,8 +10,9 @@ COPY . .
 RUN npm run test
 
 FROM test as build
-ENV REACT_APP_BACKEND_URL http://localhost:4000/
 RUN npm ci --only=production
+ENV NODE_ENV=production
+ENV REACT_APP_BACKEND_URL=http://localhost:8080/api/
 COPY . .
 RUN npm run build
 

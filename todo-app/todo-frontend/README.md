@@ -14,11 +14,39 @@ You can run tests with `npm run test`
 
 Use REACT_APP_BACKEND_URL to set where the backend for this application is.
 
-## npm scripts
+## NPM Scripts
 
-### Start/Stop
+### Production
 
-Use `docker compose up` / `npm run docker:up` and `docker compose down` / `npm run docker:down` to start/stop/rebuild.
+Build  
+`npm run docker:build`
+
+Start  
+`npm run docker:up`
+
+Stop  
+`npm run docker:down`
+
+### Development
+
+Build  
+`npm run docker:dev:build`
+
+Start  
+`npm run docker:dev:up`
+
+Stop  
+`npm run docker:dev:down`
+
+### Test
+
+Build _Test Layer_ in Dockerfile  
+`npm run docker:test:build`
+
+Run test  
+`npm run docker:test:run`
+
+### Legacy scripts
 
 The other scripts such as
 
@@ -28,20 +56,6 @@ The other scripts such as
 - `npm run docker:stop`
 - `npm run docker:start`
 
-still work, but the are just the manual way of doing what `docker compose` does.
+are just for reference. They are the manual way of doing what `docker compose` does.
 
 Read [this](https://stackoverflow.com/questions/41322541/rebuild-docker-container-on-file-changes) for a good explanation.
-
-### Test
-
-build test stage:
-
-```
-npm run docker:test:build
-```
-
-run test:
-
-```
-npm run docker:test:run
-```
