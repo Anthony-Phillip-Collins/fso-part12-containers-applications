@@ -4,4 +4,7 @@
 .env
 docker-compose*.yml
 Dockerfile*
+*Dockerfile
 *.md
+build
+node_modules

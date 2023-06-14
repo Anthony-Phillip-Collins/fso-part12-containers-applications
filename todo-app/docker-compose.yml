@@ -24,7 +24,9 @@ services:
       file: ./todo-backend/docker-compose.yml
       service: redis
   nginx:
-    image: nginx:1.25.0-bullseye
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - '8080:80'
     volumes:

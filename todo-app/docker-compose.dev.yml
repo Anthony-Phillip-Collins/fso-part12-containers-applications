@@ -28,7 +28,9 @@ services:
       file: ./todo-backend/docker-compose.dev.yml
       service: dev.redis
   dev.nginx:
-    image: nginx:1.25.0-bullseye
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
     container_name: dev.reverse-proxy
     ports:
       - '8080:80'
